@@ -1,5 +1,6 @@
 #!/bin/bash
 . ~/grits-deploy-scripts/install/install_mongo.sh
+. ~/grits-deploy-scripts/install/install_node.sh
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh

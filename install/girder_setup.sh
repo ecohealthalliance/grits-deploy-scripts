@@ -5,6 +5,7 @@
 # GIRDER_INSTALL_PATH
 # the path where girder will be cloned
 # the user running this script should have write permissions
+: ${GIRDER_INSTALL_PATH=~/girder}
 
 # APACHE_URL
 # the root URL of the apache server, i.e.

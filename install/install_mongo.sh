@@ -9,4 +9,4 @@ cp -R -n mongodb-linux-x86_64-2.6.2/ mongodb
 echo 'export PATH=~/mongodb/mongodb-linux-x86_64-2.6.2/bin/:$PATH' | tee -a ~/.bashrc
 source ~/.bashrc
 mkdir -p ~/data/db
-mongod --fork --logpath ~/mongodb.log --dbpath ~/data/db
+mongod --fork --logpath ~/mongodb.log --dbpath ~/data/db --setParameter textSearchEnabled=true

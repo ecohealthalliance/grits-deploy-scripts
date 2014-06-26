@@ -14,7 +14,6 @@ EOF
 # To download the database dump from S3:
 aws s3 cp --recursive s3://girder-data/dump dump
 mongorestore
-APACHE_URL=http://grits.ecohealth.io HEALTHMAP_APIKEY=$HEALTHMAP_APIKEY GIRDER_ADMIN_PASSWORD=password ./girder_setup.sh
 # If you want to automatically backup the database use the following commands:
 tee ~/dump_girder_to_s3 <<EOF
 #!/bin/bash

@@ -16,7 +16,8 @@ sudo pip install virtualenv virtualenvwrapper
 echo 'export WORKON_HOME=~/Envs' | tee -a ~/.bashrc
 echo 'source /usr/local/bin/virtualenvwrapper.sh' | tee -a ~/.bashrc
 source ~/.bashrc
-mkvirtualenv grits_api_env
+virtualenv grits_api_env
+. grits_api_env/bin/activate
 pip install -r requirements.txt
 # Import geonames for the location extractor
 ./import_geonames.sh

@@ -54,7 +54,7 @@ git clone https://github.com/girder/girder.git
 cd girder/plugins
 
 # clone the grits plugin
-git clone https://github.com/ecohealthalliance/gritsSearch.git
+git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSearch.git
 
 # go up to the main girder directory
 cd ..

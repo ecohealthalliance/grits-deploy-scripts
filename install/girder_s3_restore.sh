@@ -7,13 +7,13 @@ mkdir ~/.aws
 tee ~/.aws/config <<EOF
 [default]
 region = us-east-1
-aws_access_key_id = AKIAIJMXFI2GUJB66FXA
-aws_secret_access_key = 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
+aws_access_key_id = $GIRDER_DATA_ACCESS_KEY
+aws_secret_access_key = $GIRDER_DATA_SECRET_KEY
 EOF
 # To download the database dump from S3:
 aws s3 cp --recursive s3://girder-data/dump dump
 mongorestore
-APACHE_URL=http://grits.ecohealth.io HEALTHMAP_APIKEY=123ABC GIRDER_ADMIN_PASSWORD=password ./girder_setup.sh
+APACHE_URL=http://grits.ecohealth.io HEALTHMAP_APIKEY=$HEALTHMAP_APIKEY GIRDER_ADMIN_PASSWORD=password ./girder_setup.sh
 # If you want to automatically backup the database use the following commands:
 tee ~/dump_girder_to_s3 <<EOF
 #!/bin/bash

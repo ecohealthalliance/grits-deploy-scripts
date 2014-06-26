@@ -3,9 +3,9 @@
 cd ~
 git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/grits-api.git
 
-sudo apt-get install git make python-pip python-dev
-sudo apt-get install gfortran libopenblas-dev liblapack-dev
-sudo apt-get install lib32z1-dev zip unzip libxml2-dev libxslt1-dev
+sudo apt-get install -y git make python-pip python-dev
+sudo apt-get install -y gfortran libopenblas-dev liblapack-dev
+sudo apt-get install -y lib32z1-dev zip unzip libxml2-dev libxslt1-dev
 
 
 cd ~/grits-api

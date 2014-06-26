@@ -59,7 +59,8 @@ git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSear
 # go up to the main girder directory
 cd ..
 
-sudo apt-get install libffi-dev
+sudo apt-get install libffi-dev python-pip
+sudo pip install virtualenv virtualenvwrapper
 
 # create a new virtualenv for girder deps
 virtualenv girder_env

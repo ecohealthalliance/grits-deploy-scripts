@@ -1,6 +1,7 @@
 #!/bin/bash
 #Script based on these [instructions](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-linux/)
 cd ~
+sudo apt-get install -y mongodb-server
 curl -O http://downloads.mongodb.org/linux/mongodb-linux-x86_64-2.6.2.tgz
 tar -zxvf mongodb-linux-x86_64-2.6.2.tgz
 mkdir -p mongodb

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install the AWS CLI as sudo so it is available in all environments.
+sudo apt-get install -y python-pip
 sudo pip install awscli
 # Configure it with your account details:
 mkdir ~/.aws

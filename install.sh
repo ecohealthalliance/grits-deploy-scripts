@@ -3,11 +3,14 @@
 sudo apt-get install -y git make python-pip python-dev
 sudo apt-get install -y gfortran libopenblas-dev liblapack-dev
 sudo apt-get install -y lib32z1-dev zip unzip libxml2-dev libxslt1-dev
-sudo apt-get install -y lib32z1-dev zip unzip libxml2-dev libxslt1-dev
 # Install these python packages as sudo so they are available in all environments.
 sudo pip install awscli virtualenv
 
-. ~/grits-deploy-scripts/install/supervisord_setup.sh
+# Configure supervisor daemons
+sudo apt-get install -y supervisor
+sudo cp -r supervisord/* /etc/supervisor/conf.d
+sudo supervisorctl update
+
 . ~/grits-deploy-scripts/install/install_mongo.sh
 . ~/grits-deploy-scripts/install/install_node.sh
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh

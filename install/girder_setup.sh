@@ -5,10 +5,10 @@
 # GIRDER_INSTALL_PATH
 # the path where girder will be cloned
 # the user running this script should have write permissions
-: ${GIRDER_INSTALL_PATH=~/girder}
+: ${GIRDER_INSTALL_PATH=~}
 
 # APACHE_URL
-# the root URL of the apache server, i.e.
+# the root URL of the apache server, e.g.
 # https://grits.ecohealth.io
 
 # GIRDER_MOUNT_PATH
@@ -57,15 +57,18 @@ cd girder/plugins
 # clone the grits plugin
 git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSearch.git
 
-# go up to the main girder directory
-cd ..
-
-sudo apt-get install -y libffi-dev python-dev python-pip
-sudo pip install virtualenv virtualenvwrapper
+sudo apt-get install -y libffi-dev
 
 # create a new virtualenv for girder deps
+# install the virtual in the home directory with the other virtual envs
+
+cd ~
+
 virtualenv girder_env
 . girder_env/bin/activate
+
+# go to the main girder directory
+cd "${GIRDER_INSTALL_PATH}/girder"
 
 # install python dependencies
 pip install --requirement requirements.txt
@@ -100,14 +103,8 @@ EOF
 # build the source
 "${grunt}" init && "${grunt}"
 
-supervisorctl start girder
-
-# add startup script for example in /etc/rc.local:
-# cd /opt/girder && ./start_girder.sh &
-
-# start up girder now
-./start_girder.sh &
-
+sudo supervisorctl start girder
+directory=/home/ubuntu/grits_api
 # either start up girder in a browser or run the following
 # to create the grits user and enable the grits plugin
 python <<EOF
@@ -119,6 +116,8 @@ passwd = '${GIRDER_ADMIN_PASSWORD}'
 
 # do initialization of girder for healthmap import
 # create main grits user
+# When a database dump is imported this might not create the user,
+# but the admin account from the dump will be there.
 resp = requests.post(
     url + '/user',
     params={
@@ -138,16 +137,19 @@ resp = requests.get(
     verify=False
 )
 
-token = resp.json()['authToken']['token']
-
-# enable grits plugin
-resp = requests.put(
-    url + '/system/plugins',
-    params={
-        'plugins': '["grits"]',
-        'token': token
-    }
-)
+if resp.status_code != requests.codes.ok:
+    print "Cound not authenticate with girder."
+else:
+    token = resp.json()['authToken']['token']
+    
+    # enable grits plugin
+    resp = requests.put(
+        url + '/system/plugins',
+        params={
+            'plugins': '["grits"]',
+            'token': token
+        }
+    )
 EOF
 
 # now we have to restart girder to enable the plugin

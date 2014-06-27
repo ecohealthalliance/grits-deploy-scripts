@@ -100,19 +100,7 @@ EOF
 # build the source
 "${grunt}" init && "${grunt}"
 
-# create a startup script
-# (this could be handled better with an actual init script)
-cat > start_girder.sh <<EOF
-#!/bin/bash
-
-# girder tries to restart and crashes when a file changes
-# we used to put it into a loop and reload when that happens
-# but it made debugging difficult so it was disabled.
-# TODO: Use supervisord or similar process management to
-# handle autorestarts.
-python -m girder
-EOF
-chmod +x start_girder.sh
+supervisorctl start girder
 
 # add startup script for example in /etc/rc.local:
 # cd /opt/girder && ./start_girder.sh &

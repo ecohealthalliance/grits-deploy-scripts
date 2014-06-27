@@ -168,28 +168,3 @@ touch girder/conf/girder.local.cfg
 
 # now hit the grits api to initialize the database
 curl "${APACHE_URL}${GIRDER_MOUNT_PATH}/api/v1/resource/grits" &> /dev/null
-
-# At this point everything is ready to start importing the healthmap data.
-# To import the last day, use the script in this repo `healthMapGirder.py`:
-
-# python healthMapGirder.py --day
-
-# for a full two year import:
-
-# python healthMapGirder.py --full
-
-# To run the script automatically every day, you can create a script in /etc/cron.daily.
-# (make sure the script name does not contain any '.' characters, otherwise cron will
-# ignore them.  This is what I did for grits.ecohealth.io:
-
-cat > "${GIRDER_INSTALL_PATH}/girder/hmapImportDay" <<EOF
-#!/bin/bash
-cp ../healthMapGirder.py healthMapGirder.py
-. girder_env/bin/activate
-export HEALTHMAP_APIKEY="${HEALTHMAP_APIKEY}"
-python healthMapGirder.py --twoday
-EOF
-chmod +x "${GIRDER_INSTALL_PATH}/girder/hmapImportDay"
-echo "0 1 * * * cd \"${GIRDER_INSTALL_PATH}/girder\" && ./hmapImportDay" | crontab
-
-# This runs a two day import every day just to make sure it gets the full days data.

@@ -10,3 +10,4 @@ export AWS_GIRDER_DATA_KEY=/gritsdb
 export MONGO_URL=localhost
 export CELERY_BROKER=mongodb://localhost:27017/tasks
 export GIRDER_MOUNT_PATH=/gritsdb
+export S3_DUMP_DIRECTORY=devdump

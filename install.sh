@@ -7,3 +7,4 @@
 . ~/grits-deploy-scripts/install/supervisord_setup.sh
 . ~/grits-deploy-scripts/install/install_dashboard.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh
+. ~/grits-deploy-scripts/cron/setup_cron.sh

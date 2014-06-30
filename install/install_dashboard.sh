@@ -1,9 +1,8 @@
 #!/bin/bash
 
 cd ~
-git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/diagnostic-dashboard.git
-cd diagnostic-dashboard
-git checkout setup-instructions
+git clone -b $DASHBOARD_BRANCH https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/diagnostic-dashboard.git
+cd ~/diagnostic-dashboard
 cd ..
 
 diagnostic-dashboard/install.sh

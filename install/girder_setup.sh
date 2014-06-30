@@ -60,15 +60,16 @@ git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSear
 sudo apt-get install -y libffi-dev
 
 # create a new virtualenv for girder deps
-# install the virtual in the home directory with the other virtual envs
-
-cd ~
+# go to the main girder directory
+cd "${GIRDER_INSTALL_PATH}/girder"
 
 virtualenv girder_env
 . girder_env/bin/activate
 
-# go to the main girder directory
-cd "${GIRDER_INSTALL_PATH}/girder"
+# The most recent version of CherryPy causes this error:
+# https://github.com/zacharyvoase/markdoc/issues/31
+# So I install an earlier version here to prevent it from being installed.
+pip install CherryPy==3.3.0
 
 # install python dependencies
 pip install --requirement requirements.txt

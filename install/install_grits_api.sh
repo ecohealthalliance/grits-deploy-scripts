@@ -9,8 +9,10 @@ aws_secret_key = '$CLASSIFIER_DATA_SECRET_KEY'
 BROKER_URL = '$CELERY_BROKER'
 mongo_url = '$MONGO_URL'
 EOF
+
 virtualenv grits_api_env
-grits_api_env/bin/pip install -r requirements.txt
+. grits_api_env/bin/activate
+pip install -r requirements.txt
 if [ "$IMPORT_GEONAMES" = "true" ]; then
     # Import geonames for the location extractor
     ./import_geonames.sh

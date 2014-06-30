@@ -17,4 +17,4 @@ export S3_DUMP_DIRECTORY=devdump
 # This should be master for prod
 export GRITS_API_BRANCH=fixes-for-deployment
 # Set to false for faster testing
-export IMPORT_GEONAMES=false
+export IMPORT_GEONAMES=true

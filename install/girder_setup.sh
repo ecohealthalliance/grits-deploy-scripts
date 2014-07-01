@@ -66,11 +66,6 @@ cd "${GIRDER_INSTALL_PATH}/girder"
 virtualenv girder_env
 . girder_env/bin/activate
 
-# The most recent version of CherryPy causes this error:
-# https://github.com/zacharyvoase/markdoc/issues/31
-# So I install an earlier version here to prevent it from being installed.
-pip install CherryPy==3.3.0
-
 # install python dependencies
 pip install --requirement requirements.txt
 
@@ -142,7 +137,7 @@ if resp.status_code != requests.codes.ok:
     print "Cound not authenticate with girder."
 else:
     token = resp.json()['authToken']['token']
-    
+
     # enable grits plugin
     resp = requests.put(
         url + '/system/plugins',

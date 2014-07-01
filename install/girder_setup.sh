@@ -101,7 +101,7 @@ directory=/home/ubuntu/grits_api
 python <<EOF
 import requests
 
-url = '${APACHE_URL}${GIRDER_MOUNT_PATH}/api/v1'
+url = 'http://${GIRDER_SOCKET_HOST}:${GIRDER_SOCKET_PORT}/api/v1'
 
 passwd = '${GIRDER_ADMIN_PASSWORD}'
 
@@ -148,4 +148,4 @@ EOF
 touch girder/conf/girder.local.cfg
 
 # now hit the grits api to initialize the database
-curl "${APACHE_URL}${GIRDER_MOUNT_PATH}/api/v1/resource/grits" &> /dev/null
+curl "${GIRDER_SOCKET_HOST}:${GIRDER_SOCKET_PORT}${GIRDER_MOUNT_PATH}/api/v1/resource/grits" &> /dev/null

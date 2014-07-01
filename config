@@ -12,6 +12,8 @@ export CELERY_BROKER=mongodb://localhost:27017/tasks
 # This should be hardcoded to the server's url
 export APACHE_URL=http://`curl http://ipecho.net/plain`
 export GIRDER_MOUNT_PATH=/gritsdb
+export GIRDER_ADMIN_PASSWORD=grits4Girder!
+export GIRDER_ADMIN_EMAIL=jonathan.beezley@kitware.com
 # Be careful to use different dump directories for production and development
 export S3_DUMP_DIRECTORY=devdump
 # This should be master for prod

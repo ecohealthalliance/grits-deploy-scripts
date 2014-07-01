@@ -39,11 +39,6 @@
 # HEALTHMAP_APIKEY
 # the api key for healthmap access
 
-# capture the path to this script
-pushd `dirname $0` &> /dev/null
-script_path=`pwd -P`
-popd &> /dev/null
-
 # go to the deployment directory
 mkdir -p "${GIRDER_INSTALL_PATH}" &> /dev/null  # make the path if necessary
 cd "${GIRDER_INSTALL_PATH}"

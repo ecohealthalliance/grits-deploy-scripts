@@ -144,8 +144,7 @@ else:
 EOF
 
 # now we have to restart girder to enable the plugin
-# it suffices just to touch the config file
-touch girder/conf/girder.local.cfg
+sudo supervisorctl restart girder
 
 # now hit the grits api to initialize the database
 curl "${GIRDER_SOCKET_HOST}:${GIRDER_SOCKET_PORT}/api/v1/resource/grits" &> /dev/null

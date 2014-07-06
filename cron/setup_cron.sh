@@ -13,15 +13,15 @@ cp -r ~/grits-deploy-scripts/cron ~/cron
 # crontab -l might throw 'no crontab for user' but it's nothing to worry about.
 (
 crontab -l ;
-echo "0 1 * * * cd ~ && girder/girder_env/bin/python cron/healthMapGirder.py --twoday > cron/hm_import_log"
+echo "0 1 * * * cd ~ && girder/girder_env/bin/python cron/healthMapGirder.py --twoday > cron/hm_import_log 2> cron/hm_import_err"
 ) | crontab
 
 (
 crontab -l ;
-echo "0 3 * * * cd ~/grits-api && grits_api_env/bin/python diagnose_girder_HM_articles.py  > ~/cron/diagnose_girder_HM_articles_log"
+echo "0 3 * * * cd ~/grits-api && grits_api_env/bin/python diagnose_girder_HM_articles.py  > ~/cron/diagnose_girder_HM_articles_log 2> ~/cron/diagnose_girder_HM_articles_err"
 ) | crontab
 
 (
 crontab -l ;
-echo "0 5 * * * cd ~ && cron/dump_girder_to_s3.sh > cron/dump_girder_to_s3_log"
+echo "0 5 * * * cd ~ && cron/dump_girder_to_s3.sh > cron/dump_girder_to_s3_log 2> cron/dump_girder_to_s3_err"
 ) | crontab

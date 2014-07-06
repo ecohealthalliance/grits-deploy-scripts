@@ -10,7 +10,7 @@ export AWS_GIRDER_DATA_KEY=/gritsdb
 export MONGO_URL=localhost
 export CELERY_BROKER=mongodb://localhost:27017/tasks
 # This should be hardcoded to the server's url
-export APACHE_URL=http://`curl http://ipecho.net/plain`
+export APACHE_URL=https://`curl http://ipecho.net/plain`
 export GIRDER_MOUNT_PATH=/gritsdb
 export GIRDER_ADMIN_PASSWORD=grits4Girder!
 export GIRDER_ADMIN_EMAIL=jonathan.beezley@kitware.com

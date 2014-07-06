@@ -17,7 +17,7 @@ export GIRDER_ADMIN_EMAIL=jonathan.beezley@kitware.com
 # Be careful to use different dump directories for production and development
 export S3_DUMP_DIRECTORY=devdump
 # This should be master for prod
-export GRITS_API_BRANCH=fixes-for-deployment
-export DASHBOARD_BRANCH=setup-instructions
+export GRITS_API_BRANCH=master
+export DASHBOARD_BRANCH=master
 # Set to false for faster testing
 export IMPORT_GEONAMES=true

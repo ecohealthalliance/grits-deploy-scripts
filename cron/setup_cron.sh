@@ -25,3 +25,8 @@ echo "0 3 * * * cd ~/grits-api && grits_api_env/bin/python diagnose_girder_HM_ar
 crontab -l ;
 echo "0 5 * * * cd ~ && cron/dump_girder_to_s3.sh > cron/dump_girder_to_s3_log 2> cron/dump_girder_to_s3_err"
 ) | crontab
+
+(
+crontab -l ;
+echo "0 6 * * * cd ~ && cron/dump_meteor_to_s3.sh > cron/dump_meteor_to_s3_log 2> cron/dump_meteor_to_s3_err"
+) | crontab

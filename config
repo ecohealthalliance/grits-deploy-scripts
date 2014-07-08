@@ -21,3 +21,5 @@ export GRITS_API_BRANCH=master
 export DASHBOARD_BRANCH=master
 # Set to false for faster testing
 export IMPORT_GEONAMES=true
+# This is descriptive rather than declarative because the DB is set in the diagnostic dashboard repo.
+export METEOR_DB_NAME=diagnosis

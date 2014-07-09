@@ -2,11 +2,6 @@
 
 # configuration variables to set:
 
-# GIRDER_INSTALL_PATH
-# the path where girder will be cloned
-# the user running this script should have write permissions
-: ${GIRDER_INSTALL_PATH=~}
-
 # APACHE_URL
 # the root URL of the apache server, e.g.
 # https://grits.ecohealth.io
@@ -45,23 +40,13 @@ script_path=`pwd -P`
 popd &> /dev/null
 
 # go to the deployment directory
-mkdir -p "${GIRDER_INSTALL_PATH}" &> /dev/null  # make the path if necessary
-cd "${GIRDER_INSTALL_PATH}"
-
-# clone girder from git
-git clone https://github.com/girder/girder.git
-
-# go to the plugins subdirectory
-cd girder/plugins
-
-# clone the grits plugin
-git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSearch.git
+cd ~
 
 sudo apt-get install -y libffi-dev
 
 # create a new virtualenv for girder deps
 # go to the main girder directory
-cd "${GIRDER_INSTALL_PATH}/girder"
+cd ~/girder
 
 virtualenv girder_env
 . girder_env/bin/activate

@@ -1,6 +1,4 @@
 #!/bin/bash
-cd ~
-git clone -b $GRITS_API_BRANCH https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/grits-api.git
 cd ~/grits-api
 # create a config file
 sudo tee config.py <<EOF

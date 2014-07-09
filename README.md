@@ -1,3 +1,10 @@
+Before deploying:
+
+    # Create a config file
+    mv config.sample config
+    # Fill it out with the specifics of your deployment
+    pico config
+
 To set-up and deploy grits run the following commands:
 
     sudo apt-get install -y git

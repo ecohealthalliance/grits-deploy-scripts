@@ -1,11 +1,9 @@
 #!/bin/bash
-export HEALTHMAP_APIKEY=dfc0852292ef45677d2550405af81198
-export GIT_USER=jenkinsSkapes
-export GIT_PASSWORD=jenkins4Web!
-export CLASSIFIER_DATA_ACCESS_KEY=AKIAJCUHF3G7PGECFHOQ
-export CLASSIFIER_DATA_SECRET_KEY=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
-export GIRDER_DATA_ACCESS_KEY=AKIAIJMXFI2GUJB66FXA
-export GIRDER_DATA_SECRET_KEY=Iy2K/b6aClpWutZh/JlCoguY8FhNdO+QFVrrl4sF
+export HEALTHMAP_APIKEY=EXAMPLE
+export CLASSIFIER_DATA_ACCESS_KEY=EXAMPLE
+export CLASSIFIER_DATA_SECRET_KEY=EXAMPLE
+export GIRDER_DATA_ACCESS_KEY=EXAMPLE
+export GIRDER_DATA_SECRET_KEY=EXAMPLE
 export AWS_GIRDER_DATA_KEY=/gritsdb
 export MONGO_URL=localhost
 export CELERY_BROKER=mongodb://localhost:27017/tasks
@@ -14,9 +12,6 @@ export APACHE_URL=http://`curl http://ipecho.net/plain`
 export GIRDER_MOUNT_PATH=/gritsdb
 # Be careful to use different dump directories for production and development
 export S3_DUMP_DIRECTORY=devdump
-# This should be master for prod
-export GRITS_API_BRANCH=fixes-for-deployment
-export DASHBOARD_BRANCH=setup-instructions
 # Set to false for faster testing
 export IMPORT_GEONAMES=true
 # This is descriptive rather than declarative because the DB is set in the diagnostic dashboard repo.

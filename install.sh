@@ -16,6 +16,6 @@ sudo supervisorctl update
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh
-. ~/grits-deploy-scripts/install/install_dashboard.sh
+. ~/diagnostic-dashboard/install.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh
 . ~/grits-deploy-scripts/cron/setup_cron.sh

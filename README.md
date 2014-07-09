@@ -2,12 +2,16 @@
 
     git clone git@github.com:ecohealthalliance/grits-deploy-scripts.git
     # copy the sample config file
-    mv grits-deploy-scripts/config.sample config
+    cp grits-deploy-scripts/config.sample config
     # Fill it out with the specifics of your deployment
     pico config
     cp config grits-deploy-scripts/
     
 ### Bundling the code for deployment and distribution:
+
+As prerequisites for budling you will need to set up git using an account
+that has access to our repositories
+and you will need to set up the aws s3 CLI with access to our classifier-data bucket.
 
     . grits-deploy-scripts/create_bundle.sh
 

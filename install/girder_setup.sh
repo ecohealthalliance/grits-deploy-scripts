@@ -52,11 +52,7 @@ cd girder/plugins
 # clone the grits plugin
 git clone https://$GIT_USER:$GIT_PASSWORD@github.com/ecohealthalliance/gritsSearch.git
 
-sudo apt-get install -y libffi-dev postfix
-
-# create postfix config and start
-sudo cp /usr/share/postfix/main.cf.debian /etc/postfix/main.cf
-sudo /etc/init.d/postfix start
+sudo apt-get install -y libffi-dev
 
 # create a new virtualenv for girder deps
 # go to the main girder directory

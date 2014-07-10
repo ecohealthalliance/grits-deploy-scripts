@@ -1,0 +1,18 @@
+#!/bin/bash
+export HEALTHMAP_APIKEY=EXAMPLE
+export CLASSIFIER_DATA_ACCESS_KEY=EXAMPLE
+export CLASSIFIER_DATA_SECRET_KEY=EXAMPLE
+export GIRDER_DATA_ACCESS_KEY=EXAMPLE
+export GIRDER_DATA_SECRET_KEY=EXAMPLE
+export AWS_GIRDER_DATA_KEY=/gritsdb
+export MONGO_URL=localhost
+export CELERY_BROKER=mongodb://localhost:27017/tasks
+# This should be hardcoded to the server's url
+export APACHE_URL=http://`curl http://ipecho.net/plain`
+export GIRDER_MOUNT_PATH=/gritsdb
+# Be careful to use different dump directories for production and development
+export S3_DUMP_DIRECTORY=devdump
+# Set to false for faster testing
+export IMPORT_GEONAMES=true
+# This is descriptive rather than declarative because the DB is set in the diagnostic dashboard repo.
+export METEOR_DB_NAME=diagnosis

@@ -19,6 +19,8 @@ git clone git@github.com:ecohealthalliance/grits-api.git ; cd grits-api
 git checkout master
 git pull
 aws s3 cp --recursive s3://classifier-data .
-cd ..
-cd ..
+git clone git@github.com:ecohealthalliance/annie.git ; cd annie
+git checkout master
+git pull
+cd ../../..
 tar -pczf grits-bundle.tar.gz grits-bundle

@@ -6,6 +6,8 @@ aws_access_key = '$CLASSIFIER_DATA_ACCESS_KEY'
 aws_secret_key = '$CLASSIFIER_DATA_SECRET_KEY'
 BROKER_URL = '$CELERY_BROKER'
 mongo_url = '$MONGO_URL'
+bing_translate_id = '$BING_TRANSLATE_ID'
+bing_translate_secret = '$BING_TRANSLATE_SECRET'
 EOF
 
 virtualenv grits_api_env

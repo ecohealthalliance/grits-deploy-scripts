@@ -1,4 +1,6 @@
 #!/bin/bash
+# cron jobs backup DBS to S3, import new data from health map, and diagnose the new HM data.
+export RUN_CRON_JOBS=false
 export HEALTHMAP_APIKEY=EXAMPLE
 export CLASSIFIER_DATA_ACCESS_KEY=EXAMPLE
 export CLASSIFIER_DATA_SECRET_KEY=EXAMPLE
@@ -16,3 +18,5 @@ export S3_DUMP_DIRECTORY=devdump
 export IMPORT_GEONAMES=true
 # This is descriptive rather than declarative because the DB is set in the diagnostic dashboard repo.
 export METEOR_DB_NAME=diagnosis
+export BING_TRANSLATE_ID=grits_api
+export BING_TRANSLATE_SECRET=EXAMPLE

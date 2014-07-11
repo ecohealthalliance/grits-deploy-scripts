@@ -11,6 +11,7 @@ sudo apt-get install -y supervisor
 sudo cp -r supervisord/* /etc/supervisor/conf.d
 sudo supervisorctl update
 
+. ~/grits-deploy-scripts/install/install_postfix.sh
 . ~/grits-deploy-scripts/install/install_mongo.sh
 . ~/grits-deploy-scripts/install/install_node.sh
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh

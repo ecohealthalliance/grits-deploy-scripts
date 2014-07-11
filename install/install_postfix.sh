@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install -y postfix
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y postfix
 
 sudo tee /etc/postfix/main.cf > /dev/null <<EOF
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version

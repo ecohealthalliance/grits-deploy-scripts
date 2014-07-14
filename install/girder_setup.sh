@@ -34,11 +34,6 @@
 # HEALTHMAP_APIKEY
 # the api key for healthmap access
 
-# capture the path to this script
-pushd `dirname $0` &> /dev/null
-script_path=`pwd -P`
-popd &> /dev/null
-
 # go to the deployment directory
 cd ~
 
@@ -50,11 +45,6 @@ cd ~/girder
 
 virtualenv girder_env
 . girder_env/bin/activate
-
-# The most recent version of CherryPy causes this error:
-# https://github.com/zacharyvoase/markdoc/issues/31
-# So I install an earlier version here to prevent it from being installed.
-pip install CherryPy==3.3.0
 
 # install python dependencies
 pip install --requirement requirements.txt
@@ -96,7 +86,7 @@ directory=/home/ubuntu/grits_api
 python <<EOF
 import requests
 
-url = '${APACHE_URL}${GIRDER_MOUNT_PATH}/api/v1'
+url = 'http://${GIRDER_SOCKET_HOST}:${GIRDER_SOCKET_PORT}/api/v1'
 
 passwd = '${GIRDER_ADMIN_PASSWORD}'
 
@@ -127,7 +117,7 @@ if resp.status_code != requests.codes.ok:
     print "Cound not authenticate with girder."
 else:
     token = resp.json()['authToken']['token']
-    
+
     # enable grits plugin
     resp = requests.put(
         url + '/system/plugins',
@@ -139,8 +129,7 @@ else:
 EOF
 
 # now we have to restart girder to enable the plugin
-# it suffices just to touch the config file
-touch girder/conf/girder.local.cfg
+sudo supervisorctl restart girder
 
 # now hit the grits api to initialize the database
-curl "${APACHE_URL}${GIRDER_MOUNT_PATH}/api/v1/resource/grits" &> /dev/null
+curl "${GIRDER_SOCKET_HOST}:${GIRDER_SOCKET_PORT}/api/v1/resource/grits" &> /dev/null

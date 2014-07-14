@@ -16,6 +16,12 @@ sudo supervisorctl update
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh
+sudo tee ~/diagnostic-dashboard/config <<EOF
+#!/bin/bash
+export PORT=$METEOR_PORT
+export MONGO_URL=$METEOR_MONGO
+export ROOT_URL=$APACHE_URL
+EOF
 . ~/diagnostic-dashboard/install.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh
 if [ "$RUN_CRON_JOBS" = "true" ]; then

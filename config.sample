@@ -1,6 +1,8 @@
 #!/bin/bash
 # cron jobs backup DBS to S3, import new data from health map, and diagnose the new HM data.
 export RUN_CRON_JOBS=false
+# Queue up all the articles in the database for diagnosis after installation.
+export DIAGNOSE_ON_LAUNCH=false
 export HEALTHMAP_APIKEY=EXAMPLE
 export CLASSIFIER_DATA_ACCESS_KEY=EXAMPLE
 export CLASSIFIER_DATA_SECRET_KEY=EXAMPLE

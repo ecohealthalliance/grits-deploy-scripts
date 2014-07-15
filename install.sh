@@ -29,3 +29,8 @@ EOF
 if [ "$RUN_CRON_JOBS" = "true" ]; then
     . ~/grits-deploy-scripts/cron/setup_cron.sh
 fi
+if [ "$DIAGNOSE_ON_LAUNCH" = "true" ]; then
+    cd ~/grits-api
+    grits_api_env/bin/python diagnose_girder_HM_articles.py
+    cd ..
+fi

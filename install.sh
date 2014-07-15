@@ -22,6 +22,7 @@ sudo tee ~/diagnostic-dashboard/config <<EOF
 export PORT=$METEOR_PORT
 export MONGO_URL=$METEOR_MONGO
 export ROOT_URL=$APACHE_URL
+export MAIL_URL=smtp://localhost
 EOF
 . ~/diagnostic-dashboard/install.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh

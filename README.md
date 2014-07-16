@@ -10,8 +10,10 @@
 ### Bundling the code for deployment and distribution:
 
 As prerequisites for budling you will need to set up git using an account
-that has access to our repositories
-and you will need to set up the aws s3 CLI with access to our classifier-data bucket.
+that has access to our repositories and you will need to set up the aws s3 CLI
+with access to our classifier-data bucket.
+You should also set the branches you want to use in the create bundle script
+prior to executing it.
 
     . grits-deploy-scripts/create_bundle.sh
 

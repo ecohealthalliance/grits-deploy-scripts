@@ -1,6 +1,7 @@
 #!/bin/bash
 mkdir grits-bundle
 cp -r grits-deploy-scripts grits-bundle
+cp grits-deploy-scripts/README.md grits-bundle/README.md
 cd grits-bundle
 git clone git@github.com:girder/girder.git ; cd girder
 # Update the repo if it already exists

@@ -1,10 +1,25 @@
+### GRITS installation
+
+This project provides installation scripts for the GRITS suite, including the 
+[diagnostic-dashboard](https://github.com/ecohealthalliance/diagnostic-dashboard) 
+user interface, the [grits-api](https://github.com/ecohealthalliance/grits-api) 
+backend, the [girder](https://github.com/ecohealthalliance/girder) database, and 
+all dependencies.
+
+### Usage
+
+The install scripts presume you are running on a Linux-like environment and have 
+`apt-get` in your path. This project is suitable for running on a fresh EC2 
+instance that requires most components to be installed. If your environment 
+differs from these expectations you may prefer to install the components individually (see below).
+
 ### Creating a config file for your deployment:
 
 If you are deploying a prepackaged bundle, you may need to extract it to
 edit the config file.
 
     tar -xvzf grits-bundle.tar.gz
-    
+
 Once you've made your changes you can rearchive it with this command:
 
     tar -pczf grits-bundle.tar.gz grits-bundle
@@ -33,9 +48,9 @@ prior to executing it.
 
 ### Setting up a server:
 
-Unless you have in depth knowledge of the grits source code,
+Unless you have in-depth knowledge of the grits source code,
 we recommend only deploying it on dedicated machines.
-Other processes on the system may conflict with it and vice-versa.
+Other processes on the system may conflict with it.
 
 In all our deployments we have used Ubuntu 14.04 LTS 64bit 4+vCPU AWS instances.
 These instance are stock AWS instances. When launching the instance
@@ -56,3 +71,18 @@ Places to look for log files:
 
     /var/log/supervisor/
     forever list
+
+### Individual installs
+
+If you wish to run GRITS by installing individual components manually, this can 
+be easily done by reading the individual components documentation and following 
+the install instructions therein:
+
+* [diagnostic-dashboard](https://github.com/ecohealthalliance/diagnostic-dashboard)
+* [grits-api](https://github.com/ecohealthalliance/grits-api)
+* [girder](https://github.com/ecohealthalliance/girder)
+
+
+
+
+

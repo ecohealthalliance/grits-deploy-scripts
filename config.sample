@@ -1,0 +1,30 @@
+#!/bin/bash
+# cron jobs backup DBS to S3, import new data from health map, and diagnose the new HM data.
+export RUN_CRON_JOBS=true
+# Queue up all the articles in the database for diagnosis after installation.
+export DIAGNOSE_ON_LAUNCH=false
+export HEALTHMAP_APIKEY=EXAMPLE
+export CLASSIFIER_DATA_ACCESS_KEY=EXAMPLE
+export CLASSIFIER_DATA_SECRET_KEY=EXAMPLE
+export GIRDER_DATA_ACCESS_KEY=EXAMPLE
+export GIRDER_DATA_SECRET_KEY=EXAMPLE
+export AWS_GIRDER_DATA_KEY=/gritsdb
+export MONGO_URL=localhost
+export CELERY_BROKER=mongodb://localhost:27017/tasks
+# This should be hardcoded to the server's url
+export APACHE_URL=https://`curl http://ipecho.net/plain`
+export GIRDER_MOUNT_PATH=/gritsdb
+export GIRDER_ADMIN_PASSWORD=EXAMPLE
+export GIRDER_ADMIN_EMAIL=example@example.com
+# Be careful to use different dump directories for production and development
+export S3_MONGO_IMPORT_DIRECTORY=diagnosedHMData
+export S3_DUMP_DIRECTORY=devdump
+# Set to false for faster testing
+export IMPORT_GEONAMES=true
+
+export BING_TRANSLATE_ID=grits_api
+export BING_TRANSLATE_SECRET=EXAMPLE
+
+export METEOR_DB_NAME=diagnosis
+export METEOR_MONGO=mongodb://localhost:27017/$METEOR_DB_NAME
+export METEOR_PORT=3001

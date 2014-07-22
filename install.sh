@@ -17,6 +17,20 @@ sudo supervisorctl update
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh
-. ~/grits-deploy-scripts/install/install_dashboard.sh
+sudo tee ~/diagnostic-dashboard/config <<EOF
+#!/bin/bash
+export PORT=$METEOR_PORT
+export MONGO_URL=$METEOR_MONGO
+export ROOT_URL=$APACHE_URL
+export MAIL_URL=smtp://localhost
+EOF
+. ~/diagnostic-dashboard/install.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh
-. ~/grits-deploy-scripts/cron/setup_cron.sh
+if [ "$RUN_CRON_JOBS" = "true" ]; then
+    . ~/grits-deploy-scripts/cron/setup_cron.sh
+fi
+if [ "$DIAGNOSE_ON_LAUNCH" = "true" ]; then
+    cd ~/grits-api
+    grits_api_env/bin/python diagnose_girder_HM_articles.py
+    cd ..
+fi

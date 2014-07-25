@@ -8,6 +8,7 @@ BROKER_URL = '$CELERY_BROKER'
 mongo_url = '$MONGO_URL'
 bing_translate_id = '$BING_TRANSLATE_ID'
 bing_translate_secret = '$BING_TRANSLATE_SECRET'
+api_key = '$GRITS_API_KEY'
 EOF
 
 virtualenv grits_api_env

@@ -8,7 +8,16 @@ sudo pip install awscli virtualenv
 
 # Configure supervisor daemons
 sudo apt-get install -y supervisor
-sudo cp -r supervisord/* /etc/supervisor/conf.d
+cd ~/grits-deploy-scripts/supervisord
+# Loop over supervisord config files
+# substitute in environment vars
+# then put them in the config folder
+if [ -n "$FLOWER_PASSWORD" ]; then
+    for f in *; do
+        cat $f | envsubst | sudo tee /etc/supervisor/conf.d/$f
+    done
+fi
+cd ~
 sudo supervisorctl update
 
 . ~/grits-deploy-scripts/install/install_postfix.sh

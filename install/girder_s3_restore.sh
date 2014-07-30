@@ -1,4 +1,6 @@
 #!/bin/bash
+# The AWS CLI is a dependency for this script.
+# Here's one way to install it: sudo pip install awscli
 # Configure it with your account details:
 mkdir ~/.aws
 tee ~/.aws/config <<EOF

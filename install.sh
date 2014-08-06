@@ -17,6 +17,7 @@ sudo supervisorctl update
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh
+. ~/grits-deploy-scripts/install/install_jvm_nlp.sh
 sudo tee ~/diagnostic-dashboard/config <<EOF
 #!/bin/bash
 export PORT=$METEOR_PORT

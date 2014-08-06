@@ -24,5 +24,8 @@ mv translations corpora
 git clone git@github.com:ecohealthalliance/annie.git ; cd annie
 git checkout master
 git pull
+git clone git@github.com:ecohealthalliance/jvm-nlp.git ; cd jvm-nlp
+git checkout master
+git pull
 cd ../../..
 tar -pczf grits-bundle.tar.gz grits-bundle --exclude-vcs

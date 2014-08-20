@@ -1,10 +1,8 @@
 #!/bin/bash
-cd ~/jvm-nlp
+cd ~/grits-api/jvm-nlp
 
 # Tomcat installation for jvm-nlp
-sudo apt-get install default-jre
-sudo apt-get install default-jdk
-sudo apt-get install tomcat7
+sudo apt-get install -y default-jre default-jdk tomcat7
 
 sudo tee /etc/default/tomcat7 <<EOF
 TOMCAT7_USER=tomcat7

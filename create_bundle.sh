@@ -13,19 +13,20 @@ git pull
 cd ..
 cd ../..
 git clone git@github.com:ecohealthalliance/diagnostic-dashboard.git ; cd diagnostic-dashboard
-git checkout master
+git checkout integration
 git pull
 cd ..
 git clone git@github.com:ecohealthalliance/grits-api.git ; cd grits-api
-git checkout master
+git checkout integration
 git pull
 aws s3 cp --recursive s3://classifier-data .
 mv translations corpora
 git clone git@github.com:ecohealthalliance/annie.git ; cd annie
-git checkout master
+git checkout integration
 git pull
+cd ..
 git clone git@github.com:ecohealthalliance/jvm-nlp.git ; cd jvm-nlp
 git checkout master
 git pull
 cd ../../..
-tar -pczf grits-bundle.tar.gz grits-bundle --exclude-vcs
+tar -pczf grits-bundle.tar.gz grits-bundle

@@ -8,7 +8,14 @@ sudo pip install awscli virtualenv
 
 # Configure supervisor daemons
 sudo apt-get install -y supervisor
-sudo cp -r supervisord/* /etc/supervisor/conf.d
+cd ~/grits-deploy-scripts/supervisord
+if [ -n "$FLOWER_PASSWORD" ]; then
+    cat flowerd.conf | envsubst | sudo tee /etc/supervisor/conf.d/flowerd.conf
+fi
+cat celeryd.conf | envsubst | sudo tee /etc/supervisor/conf.d/celeryd.conf
+cat girderd.conf | envsubst | sudo tee /etc/supervisor/conf.d/girderd.conf
+cat gritsapid.conf | envsubst | sudo tee /etc/supervisor/conf.d/gritsapid.conf
+cd ~
 sudo supervisorctl update
 
 . ~/grits-deploy-scripts/install/install_postfix.sh

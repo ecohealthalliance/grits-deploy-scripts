@@ -28,3 +28,14 @@ export BING_TRANSLATE_SECRET=EXAMPLE
 export METEOR_DB_NAME=diagnosis
 export METEOR_MONGO=mongodb://localhost:27017/$METEOR_DB_NAME
 export METEOR_PORT=3001
+
+export FLOWER_PORT=5555
+export FLOWER_USER=EXAMPLE
+# Setting the password enables Flower
+export FLOWER_PASSWORD=""
+
+export GRITS_API_KEY=EXAMPLE
+
+export CELERY_PRIORITY_WORKERS=1
+# Batch workers also handle priority jobs.
+export CELERY_BATCH_WORKERS=2

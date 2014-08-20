@@ -13,11 +13,11 @@ git pull
 cd ..
 cd ../..
 git clone git@github.com:ecohealthalliance/diagnostic-dashboard.git ; cd diagnostic-dashboard
-git checkout tags/bundle0.0.1
+git checkout master
 git pull
 cd ..
 git clone git@github.com:ecohealthalliance/grits-api.git ; cd grits-api
-git checkout tags/bundle0.0.0
+git checkout master
 git pull
 aws s3 cp --recursive s3://classifier-data .
 mv translations corpora

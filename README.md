@@ -36,6 +36,10 @@ To edit the config file:
     # Then fill it out with the specifics of your deployment
     pico grits-deploy-scripts/config
 
+In addition to the config file, you will need to supply ssl certificates
+for https support. Those should be placed in a `ssl` directory
+like the `ssl_example` directory.
+
 ### Bundling the code for deployment and distribution:
 
 As prerequisites for budling you will need to set up git using an account

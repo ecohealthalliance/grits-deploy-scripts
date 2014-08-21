@@ -16,7 +16,9 @@ virtualenv grits_api_env
 pip install -r requirements.txt
 if [ "$IMPORT_GEONAMES" = "true" ]; then
     # Import geonames for the location extractor
-    ./annie/import_geonames.sh
+    cd annie
+    ./import_geonames.sh
+    cd ..
 fi
 # This script does the rest. Rerun it to update when the code changes.
 ./deploy.sh

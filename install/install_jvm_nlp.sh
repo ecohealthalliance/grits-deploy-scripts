@@ -15,4 +15,4 @@ EOF
 sudo rm -rf /var/lib/tomcat7/webapps/ROOT*
 sudo cp target/scala-2.11/*.war /var/lib/tomcat7/webapps/ROOT.war
 
-sudo service tomcat7 start
+sudo service tomcat7 restart

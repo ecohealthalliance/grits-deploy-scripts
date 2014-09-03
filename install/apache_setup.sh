@@ -8,8 +8,6 @@ sudo cp ~/grits-deploy-scripts/ssl/apache.key /etc/apache2/ssl/apache.key
 # Install a config file for proxying the meteor dashboard
 # and girder
 sudo tee /etc/apache2/conf-available/proxy.conf <<EOF
-Listen 443 http
-Listen 80
 <VirtualHost *:80>
   ServerName $APACHE_URL
   RewriteEngine on

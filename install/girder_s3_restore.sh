@@ -11,4 +11,6 @@ aws_secret_access_key = $GIRDER_DATA_SECRET_KEY
 EOF
 # To download the database dump from S3:
 aws s3 cp --recursive s3://girder-data/$S3_MONGO_IMPORT_DIRECTORY dump
+# Depending on the situation, you may want to add the --drop flag to remove
+# data in the collections that does not exist in those you are restoring from.
 mongorestore

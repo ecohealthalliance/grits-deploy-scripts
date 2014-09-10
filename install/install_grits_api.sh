@@ -8,6 +8,7 @@ BROKER_URL = '$CELERY_BROKER'
 mongo_url = '$MONGO_URL'
 bing_translate_id = '$BING_TRANSLATE_ID'
 bing_translate_secret = '$BING_TRANSLATE_SECRET'
+api_key = '$GRITS_API_KEY'
 EOF
 
 virtualenv grits_api_env
@@ -15,7 +16,9 @@ virtualenv grits_api_env
 pip install -r requirements.txt
 if [ "$IMPORT_GEONAMES" = "true" ]; then
     # Import geonames for the location extractor
+    cd annie
     ./import_geonames.sh
+    cd ..
 fi
 # This script does the rest. Rerun it to update when the code changes.
 ./deploy.sh

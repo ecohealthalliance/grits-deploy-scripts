@@ -8,7 +8,15 @@ sudo pip install awscli virtualenv
 
 # Configure supervisor daemons
 sudo apt-get install -y supervisor
-sudo cp -r supervisord/* /etc/supervisor/conf.d
+cd ~/grits-deploy-scripts/supervisord
+if [ -n "$FLOWER_PASSWORD" ]; then
+    cat flowerd.conf | envsubst | sudo tee /etc/supervisor/conf.d/flowerd.conf
+fi
+cat dashboardd.conf | envsubst | sudo tee /etc/supervisor/conf.d/dashboardd.conf
+cat celeryd.conf | envsubst | sudo tee /etc/supervisor/conf.d/celeryd.conf
+cat girderd.conf | envsubst | sudo tee /etc/supervisor/conf.d/girderd.conf
+cat gritsapid.conf | envsubst | sudo tee /etc/supervisor/conf.d/gritsapid.conf
+cd ~
 sudo supervisorctl update
 
 . ~/grits-deploy-scripts/install/install_postfix.sh
@@ -17,13 +25,7 @@ sudo supervisorctl update
 . ~/grits-deploy-scripts/install/girder_s3_restore.sh
 . ~/grits-deploy-scripts/install/girder_setup.sh
 . ~/grits-deploy-scripts/install/install_grits_api.sh
-sudo tee ~/diagnostic-dashboard/config <<EOF
-#!/bin/bash
-export PORT=$METEOR_PORT
-export MONGO_URL=$METEOR_MONGO
-export ROOT_URL=$APACHE_URL
-export MAIL_URL=smtp://localhost
-EOF
+. ~/grits-deploy-scripts/install/install_jvm_nlp.sh
 . ~/diagnostic-dashboard/install.sh
 . ~/grits-deploy-scripts/install/apache_setup.sh
 if [ "$RUN_CRON_JOBS" = "true" ]; then
